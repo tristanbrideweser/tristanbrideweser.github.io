@@ -1,0 +1,32 @@
+/**
+ * APP COMPONENT STYLES
+ * 
+ * Global app-level styles.
+ * Handles layout structure and main content spacing.
+ */
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* Ensure proper scaling - prevent zoomed out appearance */
+  position: relative;
+}
+
+/* 
+  MAIN CONTENT AREA
+  Adds top margin to account for fixed header
+  Adjust this value if you change header height
+*/
+.main-content {
+  flex: 1;
+  margin-top: 10px; /* Space for fixed header */
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 70px;
+  }
+}
