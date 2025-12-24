@@ -48,16 +48,82 @@ This creates an optimized production build in the `dist` directory.
 
 ## Deployment to GitHub Pages
 
-1. Ensure your repository is named `yourusername.github.io` (or update the base path in `vite.config.js`)
+### Prerequisites
 
-2. Deploy to GitHub Pages:
-```bash
-npm run deploy
-```
+1. **Create a GitHub repository** (if you haven't already):
+   - Go to [GitHub](https://github.com) and create a new repository
+   - Name it `yourusername.github.io` (replace `yourusername` with your GitHub username)
+   - **Important**: For a user/organization site, the repository MUST be named `username.github.io`
 
-3. Go to your repository Settings > Pages and select the `gh-pages` branch
+2. **Initialize Git** (if not already done):
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/yourusername/yourusername.github.io.git
+   git push -u origin main
+   ```
 
-Your site will be live at `https://yourusername.github.io`
+### Deployment Steps
+
+1. **Verify the base path** in `vite.config.js`:
+   - The base path should match your repository name: `base: '/yourusername.github.io/'`
+   - For user/organization sites (`username.github.io`), you can also use `base: '/'`
+
+2. **Deploy to GitHub Pages**:
+   ```bash
+   npm run deploy
+   ```
+   
+   This command will:
+   - Build your React app for production
+   - Create a `gh-pages` branch
+   - Push the built files to GitHub
+
+3. **Enable GitHub Pages**:
+   - Go to your repository on GitHub
+   - Click **Settings** → **Pages**
+   - Under **Source**, select **Deploy from a branch**
+   - Select **gh-pages** branch and **/ (root)** folder
+   - Click **Save**
+
+4. **Wait for deployment**:
+   - GitHub Pages typically takes 1-2 minutes to deploy
+   - You'll see a green checkmark when deployment is complete
+   - Your site will be live at `https://yourusername.github.io`
+
+### Updating Your Site
+
+After making changes to your code:
+
+1. Commit your changes:
+   ```bash
+   git add .
+   git commit -m "Update portfolio"
+   git push
+   ```
+
+2. Deploy again:
+   ```bash
+   npm run deploy
+   ```
+
+### Troubleshooting
+
+**Site shows 404 or blank page:**
+- Check that the base path in `vite.config.js` matches your repository name
+- Ensure GitHub Pages is set to deploy from the `gh-pages` branch
+- Wait a few minutes and refresh (deployment can take time)
+
+**Routes don't work (404 on navigation):**
+- This is normal for React Router on GitHub Pages
+- The `vite.config.js` already has the correct base path configured
+- If issues persist, check that your repository name matches the base path
+
+**Build errors:**
+- Run `npm run build` first to check for errors
+- Fix any errors before running `npm run deploy`
 
 ## Customization Guide
 

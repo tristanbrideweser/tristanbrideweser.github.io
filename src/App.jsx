@@ -16,7 +16,8 @@
  * - Modify the layout structure as needed
  */
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
@@ -26,6 +27,29 @@ import Resume from './components/Resume/Resume';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import './App.css';
+
+// Component to handle GitHub Pages 404 redirect
+function RedirectHandler() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if we're on GitHub Pages and need to handle the redirect
+    const queryParams = new URLSearchParams(location.search);
+    const redirectPath = queryParams.get('/');
+    
+    if (redirectPath) {
+      // Convert the path back from the query string format
+      const path = redirectPath
+        .replace(/~and~/g, '&')
+        .replace(/%26/g, '&');
+      
+      // Update the URL without the query parameter
+      window.history.replaceState({}, '', `${window.location.pathname}${path}${window.location.hash}`);
+    }
+  }, [location]);
+
+  return null;
+}
 
 function App() {
   return (
@@ -45,7 +69,8 @@ function App() {
        * Example: If your repo is "my-portfolio", change to:
        * basename="/my-portfolio"
        */}
-      <Router basename="/tristanbrideweser.github.io">
+      <Router basename="/">
+        <RedirectHandler />
         <div className="App">
         {/* 
           HEADER COMPONENT
