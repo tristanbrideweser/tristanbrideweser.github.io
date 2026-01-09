@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { Link } from 'react-scroll';
 
-export const Navbar = () => {
+export const Navbar = ({ isOpen, setIsOpen }) => {
     const navRef = useRef(null); 
     const linksRef = useRef([]);
     const contactRef = useRef(null);
@@ -12,7 +12,6 @@ export const Navbar = () => {
     const bottomLineRef = useRef(null);
     const tl = useRef(null);
     const iconTl = useRef(null);
-    const [isOpen, setIsOpen] = useState(false);
     const [showBurger, setShowBurger] = useState(true);
 
     useGSAP(() => {
@@ -88,15 +87,15 @@ export const Navbar = () => {
             tl.current.play()
             iconTl.current.play();
         }
-        setIsOpen(!isOpen)
+        setIsOpen(!isOpen);
     }
     return (
         <>
             <nav 
                 ref={navRef}
-                className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-blue-900 text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2">
+                className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-blue-900 text-white/80 py-28 gap-y-10 md:w-1/4 md:left-3/4">
                 <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
-                    {["home", "about", "contact"].map(
+                    {["home", "about", "projects", "resume", "blog", "contact"].map(
                         (section, index) => (
                             <div key={index} ref={(el) => (linksRef.current[index] = el)}>
                                 <Link 
@@ -115,25 +114,14 @@ export const Navbar = () => {
                 <div className='flex flex-col flex-wrap justify-between gap-8 md:flex-row'>
                 </div>
                 
-                <div className='font-light'> 
-                    <p className='tracking-wider text-white/50'>Email</p>
-                    <p className='text-xl tracking-widest lowercase text-pretty'>tristan.brideweser@gmail.com</p>
-                </div>
+                <div ref={contactRef} className='flex flex-col gap-6'>
+                    <div className='font-light'> 
+                        <p className='tracking-wider text-white/50'>Email</p>
+                        <p className='text-xl tracking-widest lowercase text-pretty'>tristan.brideweser@gmail.com</p>
+                    </div>
 
-                <div className='font-light'> 
+                    <div className='font-light'> 
                     <p className='tracking-wider text-white/50'>Social Media</p>
-                    <div className='flex flex-col flex-wrap md:flex-row gap-x-2'>
-                        {socials.map((social, index) => (
-                            <a 
-                            key={index}
-                            href={social.href}
-                            className='text-sm leading-loose tracking-widest uppercase hover:text-white transition-colors duration-300'>
-                                {"{ "}
-                                {social.name}
-                                {" }"}
-                            </a>
-                            )
-                        )}
                     </div>
                 </div>
             </nav>
