@@ -32,25 +32,25 @@ const Projects = () => {
 
     const projects = [
         {
-            title: "Project 1",
-            description: "Description of your first project. Add details about what you built, technologies used, and key features.",
-            link: "#",
-            technologies: ["React", "Node.js", "MongoDB"],
-            demoUrl: "https://example.com/demo1"
+            title: "LazyROS",
+            description: "A simple ROS2 terminal interface, inspired by the lazygit project.",
+            link: "https://github.com/tristanbrideweser/lazyros",
+            technologies: ["Rust", "ROS2"],
+            demoUrl: "https://github.com/tristanbrideweser/lazyros"
+        }, 
+        {
+            title: "Bionic Reader AR",
+            description: "Creating an augmented reality (AR) pipeline to automatically detect and bionify text to increase reading speed and comprehension.",
+            link: "https://github.com/tristanbrideweser/bionic-reader-ar",
+            technologies: ["Python", "OpenCV", "PyTorch"],
+            demoUrl: "https://github.com/tristanbridbioniceweser/lazyros"
         },
         {
-            title: "Project 2",
-            description: "Description of your second project. Highlight your achievements and problem-solving approach.",
-            link: "#",
-            technologies: ["Python", "TensorFlow", "OpenCV"],
-            demoUrl: "https://example.com/demo2"
-        },
-        {
-            title: "Project 3",
-            description: "Description of your third project. Showcase your technical skills and innovation.",
-            link: "#",
-            technologies: ["JavaScript", "Three.js", "GSAP"],
-            demoUrl: "https://example.com/demo3"
+            title: "Spritz",
+            description: "Generating a sprite and animations from an input image",
+            link: "https://github.com/tristanbrideweser/spritz",
+            technologies: ["Python",, "PyTorch"],
+            demoUrl: "https://github.com/tristanbridbioniceweser/spritz"
         }
     ];
 
