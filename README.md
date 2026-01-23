@@ -1,16 +1,44 @@
-# React + Vite
+# Tristan Brideweser - Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Jekyll-based personal portfolio website hosted on GitHub Pages.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Install dependencies:**
+   ```bash
+   bundle install
+   ```
 
-## React Compiler
+2. **Run locally:**
+   ```bash
+   bundle exec jekyll serve
+   ```
+   Then visit `http://localhost:4000`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Deployment
 
-## Expanding the ESLint configuration
+This site is configured for GitHub Pages. Simply push to the `main` branch and GitHub Pages will automatically build and deploy your site.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Structure
+
+- `_config.yml` - Jekyll configuration
+- `index.md` - Homepage
+- `about.md` - About page
+- `_posts/` - Blog posts (if you want to add a blog)
+- `_layouts/` - Custom layouts (optional)
+- `_includes/` - Reusable components (optional)
+- `assets/` - CSS, images, and other assets (optional)
+
+## Customization
+
+- Edit `_config.yml` to change site settings
+- Modify `index.md` and `about.md` for content
+- Add posts to `_posts/` directory
+- Customize the theme by creating files in `_layouts/` and `_includes/`
+
+## Theme
+
+Currently using the `minima` theme. You can override theme defaults by creating files in:
+- `_layouts/` - Override theme layouts
+- `_includes/` - Override theme includes
+- `assets/main.scss` - Override theme styles
